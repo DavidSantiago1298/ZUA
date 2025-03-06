@@ -4,7 +4,7 @@ public class PlatformsMovements : MonoBehaviour
 {
     [SerializeField]
 
-    private float speed = 2f;
+    private float initialSpeed = 2f;
 
     [SerializeField]
 
@@ -13,6 +13,16 @@ public class PlatformsMovements : MonoBehaviour
     private bool canMove = true;
 
     public bool CanMove {  set => canMove = value; }
+
+    private Vector3 startingPosition;
+
+    private float speed;
+
+    private void Start()
+    {
+        startingPosition = transform.position;
+        speed = initialSpeed;
+    }
 
     private void Update()
     {
@@ -28,7 +38,26 @@ public class PlatformsMovements : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        speed = speedIncrease;
+        speed += speedIncrease;
     }
+
+    public void StopMovement ()
+    {
+        canMove = false;
+    }
+
+    public void StartMovement()
+    {
+        canMove = true;
+    }
+
+    public void Restart()
+    {
+        transform.position = startingPosition;
+        speed = initialSpeed;
+        StartMovement();
+    }
+
+
 }
                
