@@ -36,9 +36,10 @@ public class PlatformInstantiate : MonoBehaviour
             {
                 offsetPositionX += platforms[randomIndex].GetComponent<BoxCollider>().size.x * 0.5f;
             }
-            GameObject platform = Instantiate(platforms[randomIndex], new Vector3(offsetPositionX, platformsPosition.position.y, platformsPosition.position.z), Quaternion.identity);
+            GameObject platform = Instantiate(platforms[randomIndex], Vector3.zero, Quaternion.identity);
             offsetPositionX += distanceBetweenPlatforms + platform.GetComponent<BoxCollider>().size.x * 0.5f;
             platform.transform.SetParent(transform);
+            platform.transform.localPosition = new Vector3(offsetPositionX, 0, 0);
         }
     }
 

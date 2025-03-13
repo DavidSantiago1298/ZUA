@@ -23,7 +23,20 @@ public class PlatformsMovements : MonoBehaviour
 
     private float speed;
 
+    private float pastSpeed;
+
     private Vector3 movedDistance;
+
+    public void SpeedUp(float speedMultiplier)
+    {
+        pastSpeed = speed;
+        speed *= speedMultiplier;
+    }
+
+    public void SpeedDown()
+    {
+        speed = pastSpeed;
+    }
 
     private void Start()
     {

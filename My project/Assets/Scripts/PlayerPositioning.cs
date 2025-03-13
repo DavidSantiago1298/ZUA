@@ -10,8 +10,11 @@ public class PlayerPositioning : MonoBehaviour
 
     private Transform startingPosition;
 
-    public void SetPlayerPosition()
+    public void  SetPlayerPosition()
     {
         player.position = startingPosition.position;
+        Rigidbody playerRigidBody = player.GetComponent<Rigidbody>();
+        playerRigidBody.linearVelocity = Vector3.zero;
+        playerRigidBody.angularVelocity = Vector3.zero;
     }
 }
