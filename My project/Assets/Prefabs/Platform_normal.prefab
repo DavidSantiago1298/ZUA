@@ -48,9 +48,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5754084199372789682, guid: 0665d380fa9602e45bae1559a19d10b0, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -1979695248683697757, guid: 32812f864ffc68f45aa97b19014b7867, type: 3}
     - target: {fileID: 919132149155446097, guid: 0665d380fa9602e45bae1559a19d10b0, type: 3}
       propertyPath: m_Name
-      value: Platform1
+      value: Platform_normal
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0665d380fa9602e45bae1559a19d10b0, type: 3}
       propertyPath: m_TagString
@@ -62,14 +66,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0665d380fa9602e45bae1559a19d10b0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -9022604052699340328}
+      addedObject: {fileID: 6207336072541879793}
   m_SourcePrefab: {fileID: 100100000, guid: 0665d380fa9602e45bae1559a19d10b0, type: 3}
 --- !u!1 &1488677744074591706 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0665d380fa9602e45bae1559a19d10b0, type: 3}
   m_PrefabInstance: {fileID: 1759132106964185227}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &-9022604052699340328
+--- !u!65 &6207336072541879793
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,5 +92,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.0000024, y: 1.1925057, z: 4.00314}
-  m_Center: {x: -1.9853551, y: 0.57937485, z: -0.013075113}
+  m_Size: {x: 5.3999996, y: 2.511542, z: 5.3999996}
+  m_Center: {x: -2.5, y: 1.255771, z: 2.5}

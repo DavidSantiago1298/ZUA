@@ -27,6 +27,10 @@ public class Dash : MonoBehaviour
 
     private bool dashEnabled = true;
 
+  
+
+
+
     public void SetDashEnabled(bool enabled)
     {
         dashEnabled = enabled;

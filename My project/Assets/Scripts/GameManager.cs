@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         onGameStart?.Invoke();
-        SoundManager.instance.Play("GameMusic");
+        
     }
 
     public void RespawnGame()
@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
         onFinishGame?.Invoke();
         Invoke("Start", finalSecondsToRestart);
         Invoke("RestartGame", finalSecondsToRestart);
+        SceneManager.LoadScene("RobotUnicornDavih");
 
     }
 
