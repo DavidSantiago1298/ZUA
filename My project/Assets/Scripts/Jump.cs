@@ -32,6 +32,10 @@ public class Jump : MonoBehaviour
 
     private bool canJump = true;
 
+    private Animator _animator;
+
+    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -53,10 +57,13 @@ public class Jump : MonoBehaviour
     {
 
     if(!canJump)
+            
         {
+            _animator.Play("Mini Simple Characters Armature|Jump");
             return;
         }
         buttonPressed = true;
+        
         if (isGrounded || jumps > 0)
         {
             jumps--;
@@ -64,6 +71,7 @@ public class Jump : MonoBehaviour
             JumpTimeCounter = maxJumpTime;
             rb.linearVelocity = Vector3.up * jumpForce;
             isGrounded = false;
+         
         }
     }
 

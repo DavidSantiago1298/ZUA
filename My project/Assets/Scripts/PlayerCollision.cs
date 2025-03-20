@@ -25,6 +25,7 @@ public class PlayerCollision : MonoBehaviour
             else
             {
                 onPlayerLose.Invoke();
+                SoundManager.instance.Play("Damage");
             }
         }
     }

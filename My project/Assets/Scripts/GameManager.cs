@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        onGameStart?.Invoke(); 
+        onGameStart?.Invoke();
+        SoundManager.instance.Play("GameMusic");
     }
 
     public void RespawnGame()
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
     public void FinishGame()
     {
         onFinishGame?.Invoke();
-        Invoke("StartGame", finalSecondsToRestart);
+        Invoke("Start", finalSecondsToRestart);
         Invoke("RestartGame", finalSecondsToRestart);
 
     }
