@@ -59,7 +59,6 @@ public class Jump : MonoBehaviour
     if(!canJump)
             
         {
-            _animator.Play("Mini Simple Characters Armature|Jump");
             return;
         }
         buttonPressed = true;
