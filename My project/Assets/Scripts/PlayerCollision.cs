@@ -9,6 +9,14 @@ public class PlayerCollision : MonoBehaviour
 
     private UnityEvent onPlayerLose;
 
+    [SerializeField]
+
+    private UnityEvent<Transform> onObstacleDestroyed;
+
+    [SerializeField]
+
+    private UnityEvent<Transform> onCollisionDie;
+
     private Dash dash;
 
     private Collider col; // Para almacenar el Collider
@@ -38,10 +46,12 @@ public class PlayerCollision : MonoBehaviour
         {
             if (dash.IsDashing)
             {
+                onObstacleDestroyed?.Invoke(transform);
                 Destroy(collision.gameObject);
             }
             else
             {
+                onCollisionDie?.Invoke(transform);
                 onPlayerLose.Invoke();
                 SoundManager.instance.Play("Damage");
             }
@@ -52,6 +62,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if(other.CompareTag("DeathZone"))
         {
+            onCollisionDie?.Invoke(transform);
             onPlayerLose?.Invoke();
         }
         
