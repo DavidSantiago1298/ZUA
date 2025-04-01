@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,7 +12,7 @@ public class PlatformsTrigger : MonoBehaviour
     {
         if (other.CompareTag("DeathZone"))
         {
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
             onPlatformsTriggered?.Invoke();
         }
     }
