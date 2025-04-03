@@ -35,6 +35,12 @@ public class Score : MonoBehaviour
         onScoreChanged?.Invoke(currentScore);
     }
 
+    public void AddScore(int Score)
+    {
+        currentScore += Score;
+        onScoreChanged?.Invoke(currentScore);
+    }
+
     public void PlayerLose()
     {
         scores.Add(currentScore);

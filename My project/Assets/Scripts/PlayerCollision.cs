@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using UnityEngine.Rendering;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -17,29 +18,17 @@ public class PlayerCollision : MonoBehaviour
 
     private UnityEvent<Transform> onCollisionDie;
 
+    [SerializeField]
+
+    private UnityEvent onCoinCollected;
+
     private Dash dash;
-
-    private Collider col; // Para almacenar el Collider
-
-    
-
 
     private void Start()
     {
         dash = GetComponent<Dash>();
-        col = GetComponent<Collider>(); // Obtiene el Collider
-        if (col != null)
-        {
-            col.enabled = false; // Desactiva el Collider
-            StartCoroutine(EnableColliderAfterDelay(1f)); // Activa después de 2 segundos
-        }
-
-        IEnumerator EnableColliderAfterDelay(float delay)
-        {
-            yield return new WaitForSeconds(delay); // Espera el tiempo especificado
-            col.enabled = true; // Reactiva el Collider
-        }
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
@@ -47,7 +36,7 @@ public class PlayerCollision : MonoBehaviour
             if (dash.IsDashing)
             {
                 onObstacleDestroyed?.Invoke(transform);
-                Destroy(collision.gameObject);
+               collision.gameObject.SetActive(false);
             }
             else
             {
@@ -64,6 +53,12 @@ public class PlayerCollision : MonoBehaviour
         {
             onCollisionDie?.Invoke(transform);
             onPlayerLose?.Invoke();
+        }
+
+        else if (other.CompareTag(("Coin")))
+        {
+            other.gameObject.SetActive(false);
+            onCoinCollected?.Invoke();
         }
         
     }
