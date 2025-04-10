@@ -23,7 +23,6 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
         audioDictionary = new Dictionary<string, AudioClip>();
         foreach (string key in audioList)
         {

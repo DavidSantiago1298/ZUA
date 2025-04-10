@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Jump : MonoBehaviour
 {
@@ -17,6 +18,14 @@ public class Jump : MonoBehaviour
     [SerializeField]
 
     private int maxJumps = 2;
+
+    [SerializeField]
+
+    private UnityEvent onJump;
+
+     [SerializeField]
+
+    private UnityEvent onLand;
 
     private int jumps;
 
@@ -65,12 +74,12 @@ public class Jump : MonoBehaviour
         
         if (isGrounded || jumps > 0)
         {
+            onJump?.Invoke();
             jumps--;
             isJumping = true;
             JumpTimeCounter = maxJumpTime;
             rb.linearVelocity = Vector3.up * jumpForce;
             isGrounded = false;
-         
         }
     }
 
@@ -106,6 +115,7 @@ public class Jump : MonoBehaviour
         {
             isGrounded = true;
             RestartJumps();
+            onLand?.Invoke();
         }
     }
 
